@@ -10,8 +10,14 @@ dotenv.config();
 const db = require("./modules/db");
 const { getGames, getPlayers, addGame, addPlayer } = db;
 
+
+
+
 const app = express();
 const port = process.env.PORT || "8888";
+
+const cors = require('cors');
+app.use(cors());
 
 // Middleware
 app.use(express.json()); // Parses JSON data in requests
