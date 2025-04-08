@@ -60,8 +60,8 @@ app.get("/api/games", async (req, res) => {
 // API Endpoint: Add a game
 app.post("/api/games", async (req, res) => {
   try {
-    const { title, platform, release_date, genre, rating } = req.body;
-    await addGame(title, platform, release_date, genre, rating);
+    const { title, platform, release_date, genre, description, image, rating } = req.body;
+    await addGame(title, platform, release_date, genre, description, image, rating);
     res.redirect("/index"); // Redirect to admin page after adding a game
   } catch (error) {
     res.status(500).json({ error: "Failed to add game" });

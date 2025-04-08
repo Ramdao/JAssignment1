@@ -19,6 +19,8 @@ const GameSchema = new mongoose.Schema({
   platform: String,
   release_date: Date,
   genre: String,
+  description: String,
+  image: String,
   rating: Number
 });
 const Game = mongoose.model("Game", GameSchema);
@@ -32,8 +34,8 @@ const PlayerSchema = new mongoose.Schema({
 const Player = mongoose.model("Player", PlayerSchema);
 
 //  Add a Game
-async function addGame(title, platform, release_date, genre, rating) {
-  let newGame = new Game({ title, platform, release_date, genre, rating });
+async function addGame(title, platform, release_date,genre, description, image, rating) {
+  let newGame = new Game({ title, platform, release_date, genre, description, image, rating });
   await newGame.save();
 }
 

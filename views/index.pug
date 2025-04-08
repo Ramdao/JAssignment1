@@ -20,6 +20,12 @@ html
       label(for="genre") Genre:
       input(type="text" name="genre" required)
 
+      label(for="description") Description:
+      input(type="text" name="description" required)
+
+      label(for="image") Image URL:
+      input(type="text" name="image" required)
+
       label(for="rating") Rating (1-10):
       input(type="number" name="rating" min="1" max="10" required)
 
@@ -50,6 +56,8 @@ html
           th Platform
           th Release Date
           th Genre
+          th Description
+          th Image
           th Rating
           th Actions
       tbody
@@ -60,6 +68,9 @@ html
               td= game.platform
               td= game.release_date.toDateString()
               td= game.genre
+              td= game.description
+              td
+                img(src=game.image alt="Game Image" width="170" height="100")
               td= game.rating
               td
                 a(href=`/delete/game/${game.title}`) ❌ Delete
